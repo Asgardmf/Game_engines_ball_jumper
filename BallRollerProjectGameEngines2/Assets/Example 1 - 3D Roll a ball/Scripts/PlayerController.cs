@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveForce = 10f;
     [SerializeField] float jumpForce = 1f;
     [SerializeField] float jumpVelocity = 10f;
-    [SerializeField] float groundCheckDistance = 0.6f;
+    [SerializeField] float groundCheckDistance = 0.7f;
 
     Vector3 moveInput;
     // test change for git !IGNORE!
@@ -42,12 +42,6 @@ public class PlayerController : MonoBehaviour
     {
         // Continous physics forces belong in FixedUpdate, since it runs on physics's own
         // fixed timestep instead of once per rendered frame like Update.
-        if (IsGrounded() && rb.linearVelocity.y < 0)
-            {
-                // Jump add force is allowed to be inside the normal Update instead of the FixedUpdate,
-                // because it only happens once and is not a continous addition of force
-                rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpVelocity, rb.linearVelocity.z);
-        }
         rb.AddForce(moveInput.normalized * moveForce);
     }
 
@@ -62,6 +56,19 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.GetComponent<KillZone>() != null)
         {
             gameManager.OnPlayerEnteredKillzone();
+        }
+
+        if (rb.linearVelocity.y > 0){
+            return;
+        }
+        
+        for(int i = 0; i < collision.contactCount; i++){
+            // 0.5F is to prevent slopes past a 60° angle to be counted as surfaces for jumping
+            if(collision.GetContact(i).normal.y > 0.5f)
+            {
+                rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpVelocity, rb.linearVelocity.z);
+                break;
+            }
         }
     }
 
