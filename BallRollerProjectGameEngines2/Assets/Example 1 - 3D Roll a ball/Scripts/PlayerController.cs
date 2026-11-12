@@ -72,6 +72,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void OnCollisionStay(Collision collision)
+    {
+        if (rb.linearVelocity.y > 0){
+            return;
+        }
+
+        for(int i = 0; i < collision.contactCount; i++){
+            // 0.5F is to prevent slopes past a 60° angle to be counted as surfaces for jumping
+            if(collision.GetContact(i).normal.y > 0.5f)
+            {
+                rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpVelocity, rb.linearVelocity.z);
+                break;
+            }
+        }
+    }
+
     // Called by GameManager to move the ball back to the start point - used
     // both for the initial spawn and every respawn after death.
     public void OnRespawn(Vector3 startPoint)
