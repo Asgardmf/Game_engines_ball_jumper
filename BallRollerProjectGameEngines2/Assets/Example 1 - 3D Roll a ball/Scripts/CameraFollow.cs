@@ -10,6 +10,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] float collisionRadius = 0.2f;
     [SerializeField] float collisionPadding = 0.1f;
     [SerializeField] LayerMask cameraObstacleMask;
+    [SerializeField] PauseMenu PausePanel;
 
     [Header("SmoothDamp Values")]
     public float smoothTime = 0.15f;
@@ -38,8 +39,10 @@ public class CameraFollow : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            PauseMenu pauseMenu = PausePanel;
+            pauseMenu.Pause();
         }
-        else if (Cursor.lockState != CursorLockMode.Locked && Input.GetMouseButtonDown(0))
+        else if (Cursor.lockState != CursorLockMode.Locked && Input.GetKeyDown(KeyCode.Escape))
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
