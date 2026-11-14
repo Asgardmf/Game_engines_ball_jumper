@@ -7669,6 +7669,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7594019522305175804, guid: ea2bf0f1546c9844f97997ba8dd64f55, type: 3}
+      propertyPath: wallJumpVerticalSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7594019522305175804, guid: ea2bf0f1546c9844f97997ba8dd64f55, type: 3}
+      propertyPath: wallJumpHorizontalSpeed
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15874,7 +15882,7 @@ Transform:
   m_GameObject: {fileID: 1945028960}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.46, y: 3.237, z: 3.812}
+  m_LocalPosition: {x: -5.025, y: 19.911, z: 8.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16091,6 +16099,13 @@ MonoBehaviour:
   startPoint: {fileID: 1945028961}
   player: {fileID: 1750137898}
   levelCompleteDelay: 1.5
+  resultsPanel: {fileID: 0}
+  level1TimeHighScoreText: {fileID: 0}
+  level2TimeHighScoreText: {fileID: 0}
+  level1TimeThisTryText: {fileID: 0}
+  level2TimeThisTryeText: {fileID: 0}
+  firstLevel: 
+  levelStartTime: 0
 --- !u!4 &2009132711
 Transform:
   m_ObjectHideFlags: 0

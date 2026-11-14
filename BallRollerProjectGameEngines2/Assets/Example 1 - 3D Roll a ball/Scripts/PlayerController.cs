@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpVelocity = 10f;
     [SerializeField] float groundCheckDistance = 0.7f;
     [SerializeField] bool invertControls = false;
-    [SerializeField] float wallJumpHorizontalSpeed = 20f;
-    [SerializeField] float wallJumpVerticalSpeed = 20f;
+    [SerializeField] float wallJumpHorizontalSpeed = 10f;
+    [SerializeField] float wallJumpVerticalSpeed = 10f;
     bool wallJumpRequested = false;
     bool wallJumped = false;
     bool touchingWall = false;
