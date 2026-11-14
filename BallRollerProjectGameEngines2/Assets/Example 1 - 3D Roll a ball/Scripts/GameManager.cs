@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text level1TimeThisTryText;
     [SerializeField] TMP_Text level2TimeThisTryText;
     [SerializeField] string firstLevel;
+    [SerializeField] AudioClip levelclip;
+    [SerializeField] AudioClip finishSound;
     public float levelStartTime;
 
     private void Start()
@@ -29,12 +31,9 @@ public class GameManager : MonoBehaviour
         {
             ClearRunTimes();
         }
-    }
-
-    // Called by Player when it touches a KillZone.
-    public void OnPlayerEnteredKillzone()
-    {
-        player.OnRespawn(startPoint.position);
+        if(levelclip != null){
+            AudioManager.Instance.PlayMusic(levelclip);
+        }
     }
 
     // Called by FinishZone when the player reaches the end of the level.
@@ -51,6 +50,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetFloat(key, elapsed);
         }
         PlayerPrefs.Save();
+        AudioManager.Instance.PlaySfx(finishSound);
         // Invoke calls a method by name after a delay - a simpler alternative
         // to a coroutine for a single delayed call.
         Invoke(nameof(LoadNextLevel), levelCompleteDelay);

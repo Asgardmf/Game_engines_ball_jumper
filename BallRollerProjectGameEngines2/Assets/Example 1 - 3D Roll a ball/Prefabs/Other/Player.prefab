@@ -117,7 +117,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -152,8 +152,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCameraFollow
   target: {fileID: 4547009010925514628}
   followMode: 0
+  mouseSensitivity: 3
+  collisionRadius: 0.2
+  collisionPadding: 0.1
+  cameraObstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  PausePanel: {fileID: 0}
   smoothTime: 0.3
   lerpSpeed: 5
+  yaw: 0
+  pitch: 0
+  distance: 0
 --- !u!1 &2424652904371477930
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,4 +388,8 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   moveForce: 10
   jumpForce: 5
+  jumpVelocity: 10
   groundCheckDistance: 0.6
+  invertControls: 0
+  wallJumpHorizontalSpeed: 10
+  wallJumpVerticalSpeed: 10

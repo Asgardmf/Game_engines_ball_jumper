@@ -13,7 +13,10 @@ public class FinishZone : MonoBehaviour
         PlayerController player = other.gameObject.GetComponentInParent<PlayerController>();
         if (player == null) return;
 
-        //finishVfx.Play();
+        if(finishVfx != null)
+        {
+            finishVfx.Play();
+        }
         gameManger.OnPlayerReachedFinish();
     }
 }

@@ -88,10 +88,6 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<KillZone>() != null)
-        {
-            gameManager.OnPlayerEnteredKillzone();
-        }
         UpdateWallContact(collision);
 
         if (rb.linearVelocity.y > 0){
