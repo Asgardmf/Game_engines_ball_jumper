@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Example 2 - 2D Endless game/Scenes/Level 1.unity
     guid: 4068ba3728ac6f3478c09f1de5b6f844
   - enabled: 1
+    path: Assets/Example 1 - 3D Roll a ball/Scenes/MainMenu.unity
+    guid: baf0783c3f5160f4589f28130d1417d8
+  - enabled: 1
     path: Assets/Example 1 - 3D Roll a ball/Scenes/DoodleJumpScene1.unity
     guid: c6b0320b54508411a9339192695b61f8
   - enabled: 1
